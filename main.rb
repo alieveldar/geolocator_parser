@@ -16,7 +16,7 @@ def getLocation(address)
     point_json = res.body
     point_json = JSON.parse(point_json)
     points_position << point_json["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]["Point"]["pos"].split(" ")
-    geo_coder_csv_row << (points_position[0][0].to_s + ";" + points_position[0][1].to_s + ";" + points_address[0][1].to_s.chomp! + ";" + points_address[0][0].to_s)
+    geo_coder_csv_row << (points_position[0][1].to_s + ";" + points_position[0][0].to_s + ";" + points_address[0][1].to_s.chomp! + ";" + points_address[0][0].to_s)
     print geo_coder_csv_row
   else
     puts "SOME NO GOOD"
